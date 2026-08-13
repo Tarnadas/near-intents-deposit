@@ -1,0 +1,27 @@
+{
+  "extends": "@orderly.network/ts-config/react-library.json",
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
+  "exclude": [
+    "dist",
+    "build",
+    "node_modules",
+    "**/*.test.tsx",
+    "**/*.test.ts",
+    "**/*.test.js",
+    "**/*.spec.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.js",
+    "**/*.stories.tsx"
+  ],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "sourceMap": false,
+    "module": "esnext",
+    "outDir": "dist",
+    "declarationDir": "types",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "lib": ["es2020", "dom", "dom.iterable"]
+  }
+}

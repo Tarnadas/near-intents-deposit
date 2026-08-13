@@ -1,0 +1,11 @@
+{
+  "npmName": "near-intents-swap",
+  "pluginId": "near-intents-swap",
+  "repoUrl": "github.com/OrderlyNetwork/near-intents-plugin",
+  "tags": [],
+  "storybookUrl": null,
+  "storybookTooltip": null,
+  "usagePrompt": null,
+  "createdAt": "2026-08-13T12:26:55.828Z",
+  "updatedAt": "2026-08-13T12:26:55.828Z"
+}
