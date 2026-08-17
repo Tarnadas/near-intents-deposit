@@ -2,7 +2,7 @@
   "NearIntentsDeposit.refundAddress": "İade adresi (kaynak zincirde)",
   "NearIntentsDeposit.viewExplorer": "Gezgin'de Görüntüle →",
   "NearIntentsDeposit.flow.title": "Zincirler arası yatırma sürüyor",
-  "NearIntentsDeposit.flow.titleDone": "Yatırım tamamlandı",
+  "NearIntentsDeposit.flow.titleDone": "Para yatırma gönderildi",
   "NearIntentsDeposit.flow.titleFailed": "Yatırım başarısız",
   "NearIntentsDeposit.flow.tradingAccount": "trading hesabı",
   "NearIntentsDeposit.flow.quoting": "Teklif isteniyor",
@@ -16,5 +16,7 @@
   "NearIntentsDeposit.flow.expected": "Beklenen",
   "NearIntentsDeposit.flow.received": "Alındı",
   "NearIntentsDeposit.flow.deposited": "Yatırıldı",
-  "NearIntentsDeposit.flow.retry": "Yeniden dene"
+  "NearIntentsDeposit.flow.retry": "Yeniden dene",
+  "NearIntentsDeposit.flow.processingNote": "Para yatırma işleminiz başarıyla gönderildi. İşlem Orderly zincirinde işlendiğinde alışveriş hesabınızın bakiyesi güncellenecektir — bu genellikle birkaç dakika sürer.",
+  "NearIntentsDeposit.poweredBy": "Zincirler arası para yatırma işlemleri NEAR Intents üzerinden yönlendirilir — ücretler ve kayma (slippage) uygulanır."
 }

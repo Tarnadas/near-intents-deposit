@@ -1,7 +1,7 @@
 {
   "name": "@tarnadas/near-intents-deposit",
-  "version": "0.1.0",
-  "description": "Orderly SDK plugin — NEAR Intents cross-chain deposits integrated into the native deposit form",
+  "version": "0.2.0",
+  "description": "Orderly SDK plugin \u2014 NEAR Intents cross-chain deposits integrated into the native deposit form",
   "license": "MIT",
   "author": "Mario Reder",
   "main": "dist/index.js",
@@ -30,6 +30,8 @@
     "@orderly.network/ui": ">=3.0.0-beta.1",
     "@orderly.network/ui-transfer": ">=3.0.0-beta.1",
     "@orderly.network/utils": ">=3.0.0-beta.1",
+    "@solana/spl-token": ">=0.3.9 <0.4",
+    "@solana/web3.js": ">=1.95.0",
     "react": ">=18",
     "react-dom": ">=18"
   },
@@ -37,6 +39,8 @@
     "@orderly.network/react-app": "3.1.7-alpha.3",
     "@orderly.network/ts-config": "^0.0.2",
     "@orderly.network/ui-transfer": "3.1.7-alpha.3",
+    "@solana/spl-token": "0.3.11",
+    "@solana/web3.js": "1.98.4",
     "@types/node": "^22.7.5",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",

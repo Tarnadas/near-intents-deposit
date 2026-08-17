@@ -2,7 +2,7 @@
   "NearIntentsDeposit.refundAddress": "Terugbetalingsadres (op de bronchain)",
   "NearIntentsDeposit.viewExplorer": "Bekijk in Explorer →",
   "NearIntentsDeposit.flow.title": "Cross-chain storting bezig",
-  "NearIntentsDeposit.flow.titleDone": "Storting voltooid",
+  "NearIntentsDeposit.flow.titleDone": "Storting verzonden",
   "NearIntentsDeposit.flow.titleFailed": "Storting mislukt",
   "NearIntentsDeposit.flow.tradingAccount": "tradingrekening",
   "NearIntentsDeposit.flow.quoting": "Offerte opvragen",
@@ -16,5 +16,7 @@
   "NearIntentsDeposit.flow.expected": "Verwacht",
   "NearIntentsDeposit.flow.received": "Ontvangen",
   "NearIntentsDeposit.flow.deposited": "Gestort",
-  "NearIntentsDeposit.flow.retry": "Opnieuw proberen"
+  "NearIntentsDeposit.flow.retry": "Opnieuw proberen",
+  "NearIntentsDeposit.flow.processingNote": "Je storting is succesvol verzonden. Het saldo van je tradingaccount wordt bijgewerkt zodra de storting op de Orderly-chain is verwerkt — dit duurt meestal een paar minuten.",
+  "NearIntentsDeposit.poweredBy": "Cross-chain-stortingen worden gerouteerd via NEAR Intents — kosten en slippage zijn van toepassing."
 }

@@ -13,7 +13,7 @@ export function registerNearIntentsDepositPlugin(options: NearIntentsDepositOpti
     SDK.registerPlugin({
       id: "near-intents-deposit",
       name: "NearIntentsDeposit",
-      version: "0.1.0",
+      version: "0.2.0",
       orderlyVersion: ">=3.0.0",
 
       interceptors: [
@@ -25,7 +25,11 @@ export function registerNearIntentsDepositPlugin(options: NearIntentsDepositOpti
                 jwtToken={jwtToken}
                 slippageTolerance={slippageTolerance}
                 className={className}
-                key={JSON.stringify(props)}
+                onCloseSheet={
+                  typeof (props as { close?: unknown }).close === "function"
+                    ? (props as { close: () => void }).close
+                    : undefined
+                }
               />
             </LocaleProvider>
           ),

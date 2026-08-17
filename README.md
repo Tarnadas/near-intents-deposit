@@ -8,6 +8,8 @@ Orderly SDK plugin that adds **automated cross-chain deposits** to the native De
 
 The plugin enhances — not replaces — the deposit experience. Users see the same Orderly deposit form they always did:
 
+**EVM and Solana are both supported.** On Solana (chain 900900900, Phantom & co.), the same flow runs: SPL token balances are read via `getTokenAccountsByOwner`, the wallet transfer is a native/SPL transfer signed by the connected Solana wallet, and the final USDC vault deposit goes through Orderly's LayerZero vault program.
+
 1. The source token dropdown is extended with cross-chain tokens the user **actually holds** on their connected chain (on-chain balances are read via public RPC; tokens already supported as native collateral are deduped by symbol)
 2. Selecting a native token → the normal deposit path runs unchanged
 3. Selecting a cross-chain token (e.g. ARB, SOL, BTC) → a fully automated multi-step flow:
@@ -31,6 +33,7 @@ Provided by any Orderly SDK v3 host app:
 
 - `@orderly.network/ui-transfer`, `@orderly.network/ui`, `@orderly.network/hooks`, `@orderly.network/i18n`, `@orderly.network/types`, `@orderly.network/plugin-core` `>= 3.0.0`
 - `react`, `react-dom` `>= 18`
+- `@solana/web3.js` `>= 1.95`, `@solana/spl-token` `>= 0.3.9 <0.4` (already present in hosts with Solana wallet support)
 
 ## Integrate
 

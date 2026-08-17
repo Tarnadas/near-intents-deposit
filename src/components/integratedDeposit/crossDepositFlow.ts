@@ -1,6 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useAccount, useDeposit } from "@orderly.network/hooks";
+import { ChainNamespace } from "@orderly.network/types";
 import type { QuoteResponse, GetExecutionStatusResponse } from "@defuse-protocol/one-click-sdk-typescript";
+import { Transaction, SystemProgram, PublicKey, Connection } from "@solana/web3.js";
+import {
+  TOKEN_PROGRAM_ID,
+  getAssociatedTokenAddressSync,
+  createAssociatedTokenAccountIdempotentInstruction,
+  createTransferInstruction,
+} from "@solana/spl-token";
 import { useQuote } from "../../hooks/useQuote";
 import { useSwapStatus } from "../../hooks/useSwapStatus";
 import { DEFAULT_SLIPPAGE } from "../../config";
@@ -29,6 +37,8 @@ type LegPhase =
 export interface CrossDepositFlowParams {
   originAssetId: string;
   originSymbol: string;
+  /** 1-Click blockchain of the origin asset (e.g. "eth", "sol") */
+  originBlockchain: string;
   originContractAddress: string | null;
   originDecimals: number;
   rawAmount: string;
@@ -118,6 +128,97 @@ function extractErrorMessage(err: unknown): string | null {
   return null;
 }
 
+/**
+ * The Orderly DefaultSolanaWalletAdapter's private provider — wallet-connector
+ * feeds it the wallet-adapter-react signing functions on connect
+ * (`provider: { signMessage, signTransaction, sendTransaction, rpcUrl, ... }`),
+ * so it is the same Phantom-backed signer the host itself uses. The adapter
+ * exposes no public signTransaction, and importing useWallet() from the plugin
+ * resolves a duplicate WalletContext (the host's CJS connector inlines its own
+ * copy) which yields wallet=null — hence this route instead.
+ */
+export interface SolanaWalletLike {
+  signTransaction?: (transaction: Transaction) => Promise<Transaction>;
+  sendTransaction?: (transaction: Transaction, connection?: Connection) => Promise<string>;
+}
+
+/**
+ * Confirm via HTTP polling only. web3.js confirmTransaction(blockheight-
+ * strategy) opens a websocket signature subscription — the Orderly RPC proxy
+ * endpoint is HTTP-only, so that path spams failed wss handshakes and polls
+ * until the blockhash expires.
+ */
+async function pollSignatureConfirmation(
+  connection: Connection,
+  signature: string,
+  timeoutMs = 60_000,
+): Promise<void> {
+  const start = Date.now();
+  for (;;) {
+    if (Date.now() - start > timeoutMs) {
+      throw new Error("Transaction confirmation timed out — please retry");
+    }
+    const resp = await connection
+      .getSignatureStatus(signature)
+      .catch(() => null);
+    const value = resp?.value;
+    if (value) {
+      if (value.err) {
+        throw new Error(`Transaction failed: ${JSON.stringify(value.err)}`);
+      }
+      if (
+        value.confirmationStatus === "confirmed" ||
+        value.confirmationStatus === "finalized"
+      ) {
+        return;
+      }
+    }
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+  }
+}
+
+async function executeSolanaTransfer(
+  connection: Connection,
+  wallet: SolanaWalletLike | null | undefined,
+  params: CrossDepositFlowParams,
+  depositAddress: string,
+): Promise<void> {
+  const fromPubkey = new PublicKey(params.walletAddress);
+  const toPubkey = new PublicKey(depositAddress);
+  const amount = BigInt(params.rawAmount);
+
+  const tx = new Transaction();
+  if (params.originContractAddress) {
+    // SPL token: transfer between ATAs, creating the destination ATA
+    // idempotently in case the solver did not pre-fund it
+    const mint = new PublicKey(params.originContractAddress);
+    const sourceAta = getAssociatedTokenAddressSync(mint, fromPubkey);
+    const destAta = getAssociatedTokenAddressSync(mint, toPubkey, true);
+    tx.add(
+      createAssociatedTokenAccountIdempotentInstruction(fromPubkey, destAta, toPubkey, mint),
+      createTransferInstruction(sourceAta, destAta, fromPubkey, amount, [], TOKEN_PROGRAM_ID),
+    );
+  } else {
+    tx.add(SystemProgram.transfer({ fromPubkey, toPubkey, lamports: amount }));
+  }
+
+  const { blockhash } = await connection.getLatestBlockhash("confirmed");
+  tx.recentBlockhash = blockhash;
+  tx.feePayer = fromPubkey;
+
+  let signature: string;
+  if (typeof wallet?.signTransaction === "function") {
+    const signed = await wallet.signTransaction(tx);
+    signature = await connection.sendRawTransaction(signed.serialize());
+  } else if (typeof wallet?.sendTransaction === "function") {
+    // wallets without detached signing (e.g. mobile wallet adapter)
+    signature = await wallet.sendTransaction(tx, connection);
+  } else {
+    throw new Error("The connected Solana wallet does not support signing transactions");
+  }
+  await pollSignatureConfirmation(connection, signature);
+}
+
 export function useCrossDepositFlow(): CrossDepositFlowState {
   const [step, setStep] = useState<FlowStep>("idle");
   const [error, setError] = useState<string | null>(null);
@@ -173,9 +274,38 @@ export function useCrossDepositFlow(): CrossDepositFlowState {
       return;
     }
 
+    // the Solana adapter only supports the vault deposit method; route
+    // generic transfers through the wallet-adapter-react wallet
+    const isSolana =
+      walletAdapter.chainNamespace === ChainNamespace.solana ||
+      params.originBlockchain === "sol";
+
     try {
       setStep("awaiting_signature");
-      if (params.originContractAddress) {
+      if (isSolana) {
+        const adapter = walletAdapter as {
+          connection?: Connection;
+          _provider?: SolanaWalletLike;
+        };
+        const connection = adapter.connection;
+        const wallet = adapter._provider;
+        if (!connection) {
+          setStep("failed");
+          setError("Solana connection unavailable — please reconnect your wallet");
+          return;
+        }
+        if (typeof wallet?.signTransaction !== "function" && typeof wallet?.sendTransaction !== "function") {
+          setStep("failed");
+          setError("The connected Solana wallet does not support signing transactions — please reconnect it");
+          return;
+        }
+        await executeSolanaTransfer(
+          connection,
+          wallet,
+          params,
+          activeQuote.quote.depositAddress,
+        );
+      } else if (params.originContractAddress) {
         await walletAdapter.sendTransaction(
           params.originContractAddress,
           "transfer",

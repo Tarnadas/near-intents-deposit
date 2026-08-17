@@ -2,7 +2,7 @@
   "NearIntentsDeposit.refundAddress": "Endereço de reembolso (na chain de origem)",
   "NearIntentsDeposit.viewExplorer": "Ver no Explorador →",
   "NearIntentsDeposit.flow.title": "Depósito cross-chain em andamento",
-  "NearIntentsDeposit.flow.titleDone": "Depósito concluído",
+  "NearIntentsDeposit.flow.titleDone": "Depósito enviado",
   "NearIntentsDeposit.flow.titleFailed": "Falha no depósito",
   "NearIntentsDeposit.flow.tradingAccount": "conta de trading",
   "NearIntentsDeposit.flow.quoting": "Solicitando cotação",
@@ -16,5 +16,7 @@
   "NearIntentsDeposit.flow.expected": "Esperado",
   "NearIntentsDeposit.flow.received": "Recebido",
   "NearIntentsDeposit.flow.deposited": "Depositado",
-  "NearIntentsDeposit.flow.retry": "Tentar novamente"
+  "NearIntentsDeposit.flow.retry": "Tentar novamente",
+  "NearIntentsDeposit.flow.processingNote": "O seu depósito foi enviado com sucesso. O saldo da sua conta de trading será atualizado assim que o depósito for processado na cadeia da Orderly — isto normalmente demora alguns minutos.",
+  "NearIntentsDeposit.poweredBy": "Os depósitos entre cadeias são roteados via NEAR Intents — aplicam-se taxas e slippage."
 }

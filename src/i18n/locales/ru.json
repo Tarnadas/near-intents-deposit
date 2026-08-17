@@ -2,7 +2,7 @@
   "NearIntentsDeposit.refundAddress": "Адрес возврата (в сети источника)",
   "NearIntentsDeposit.viewExplorer": "Открыть в обозревателе →",
   "NearIntentsDeposit.flow.title": "Идёт межцепочечное пополнение",
-  "NearIntentsDeposit.flow.titleDone": "Пополнение завершено",
+  "NearIntentsDeposit.flow.titleDone": "Депозит отправлен",
   "NearIntentsDeposit.flow.titleFailed": "Не удалось пополнить",
   "NearIntentsDeposit.flow.tradingAccount": "торговый счёт",
   "NearIntentsDeposit.flow.quoting": "Запрос котировки",
@@ -16,5 +16,7 @@
   "NearIntentsDeposit.flow.expected": "Ожидается",
   "NearIntentsDeposit.flow.received": "Получено",
   "NearIntentsDeposit.flow.deposited": "Внесено",
-  "NearIntentsDeposit.flow.retry": "Повторить"
+  "NearIntentsDeposit.flow.retry": "Повторить",
+  "NearIntentsDeposit.flow.processingNote": "Ваш депозит успешно отправлен. Баланс вашего торгового счёта обновится после обработки депозита в цепочке Orderly — обычно это занимает несколько минут.",
+  "NearIntentsDeposit.poweredBy": "Кросс-чейн депозиты маршрутизируются через NEAR Intents — взимаются комиссии и учитывается проскальзывание."
 }

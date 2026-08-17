@@ -14,6 +14,7 @@ export default defineConfig((options) => ({
     "react",
     "react-dom",
     /^@orderly\.network\/.*/,
+    /^@solana\/.*/,
   ],
   esbuildOptions(esOptions, context) {
     if (!options.watch) {

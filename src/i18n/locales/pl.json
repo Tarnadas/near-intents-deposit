@@ -2,7 +2,7 @@
   "NearIntentsDeposit.refundAddress": "Adres zwrotu (w sieci źródłowej)",
   "NearIntentsDeposit.viewExplorer": "Zobacz w Explorerze →",
   "NearIntentsDeposit.flow.title": "Depozyt cross-chain w toku",
-  "NearIntentsDeposit.flow.titleDone": "Depozyt zakończony",
+  "NearIntentsDeposit.flow.titleDone": "Depozyt wysłany",
   "NearIntentsDeposit.flow.titleFailed": "Depozyt nie powiódł się",
   "NearIntentsDeposit.flow.tradingAccount": "konto tradingowe",
   "NearIntentsDeposit.flow.quoting": "Pobieranie wyceny",
@@ -16,5 +16,7 @@
   "NearIntentsDeposit.flow.expected": "Oczekiwane",
   "NearIntentsDeposit.flow.received": "Otrzymano",
   "NearIntentsDeposit.flow.deposited": "Wpłacono",
-  "NearIntentsDeposit.flow.retry": "Ponów"
+  "NearIntentsDeposit.flow.retry": "Ponów",
+  "NearIntentsDeposit.flow.processingNote": "Twój depozyt został pomyślnie wysłany. Saldo Twojego konta tradingowego zaktualizuje się po przetworzeniu depozytu w łańcuchu Orderly — zwykle trwa to kilka minut.",
+  "NearIntentsDeposit.poweredBy": "Depozyty międzyłańcuchowe są kierowane przez NEAR Intents — obowiązują opłaty i slippage."
 }

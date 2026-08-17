@@ -3,12 +3,14 @@ import {
   useDepositFormScript,
 } from "@orderly.network/ui-transfer";
 import { useAccount } from "@orderly.network/hooks";
+import { ChainNamespace } from "@orderly.network/types";
 import type { API } from "@orderly.network/types";
 import type { TokenResponse, QuoteResponse, GetExecutionStatusResponse } from "@defuse-protocol/one-click-sdk-typescript";
 import { useTokens } from "../../hooks/useTokens";
 import { useQuote } from "../../hooks/useQuote";
 import { useSwapStatus } from "../../hooks/useSwapStatus";
 import { useOnchainBalances } from "../../hooks/useOnchainBalances";
+import type { SolanaRpcConnection } from "../../hooks/useOnchainBalances";
 import { useCrossDepositFlow } from "./crossDepositFlow";
 import { DEFAULT_SLIPPAGE } from "../../config";
 
@@ -30,6 +32,7 @@ const CHAIN_ID_TO_BLOCKCHAIN: Record<number, string> = {
   43114: "avax",
   100: "gnosis",
   534352: "scroll",
+  900900900: "sol",
 };
 
 const EVM_BLOCKCHAINS = new Set([
@@ -92,10 +95,22 @@ export function useIntegratedDepositScript(
   const { jwtToken, slippageTolerance = DEFAULT_SLIPPAGE } = options;
 
   const state = useDepositFormScript({});
-  const { state: accountState } = useAccount();
+  const { state: accountState, account } = useAccount();
   // accountState.address is the connected wallet address (available on
   // connect); accountState.accountId only exists after account registration
   const walletAddress = accountState?.address;
+
+  // On Solana the adapter exposes a Connection that routes through Orderly's
+  // signed RPC proxy — public Solana endpoints rate-limit/403 per-IP, which
+  // silently emptied the cross-chain token list.
+  const solanaAdapter = account?.walletAdapter as
+    | { chainNamespace?: ChainNamespace; connection?: SolanaRpcConnection }
+    | undefined;
+  const solanaConnection = solanaAdapter?.chainNamespace === ChainNamespace.solana
+    ? solanaAdapter.connection
+    : undefined;
+
+  const flow = useCrossDepositFlow();
 
   const { tokens: oneClickTokensRaw } = useTokens(jwtToken);
   const { quote: dryQuote, loading: quoteLoading, error: quoteError, fetchQuote, reset: resetQuote } =
@@ -122,6 +137,7 @@ export function useIntegratedDepositScript(
     walletAddress,
     chainBlockchain,
     chainTokens,
+    chainBlockchain === "sol" ? solanaConnection : undefined,
   );
 
   // only show cross-chain tokens the user actually holds a balance of,
@@ -228,14 +244,13 @@ export function useIntegratedDepositScript(
     [state, resetQuote],
   );
 
-  const flow = useCrossDepositFlow();
-
   const onCrossDeposit = useCallback(async () => {
     if (!crossToken || !rawAmount || !destToken || !walletAddress) return;
     const refundTo = needsManualRefund ? manualRefundRef.current || walletAddress : walletAddress;
     await flow.start({
       originAssetId: crossToken.oneClickAssetId,
       originSymbol: crossToken.symbol ?? crossToken.oneClickAssetId,
+      originBlockchain: crossToken.oneClickBlockchain,
       originContractAddress: crossToken.contractAddress ?? null,
       originDecimals: crossToken.decimals ?? 8,
       rawAmount,

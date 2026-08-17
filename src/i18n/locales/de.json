@@ -2,7 +2,7 @@
   "NearIntentsDeposit.refundAddress": "Rückgabeadresse (auf der Quell-Chain)",
   "NearIntentsDeposit.viewExplorer": "Im Explorer ansehen →",
   "NearIntentsDeposit.flow.title": "Chain-übergreifende Einzahlung läuft",
-  "NearIntentsDeposit.flow.titleDone": "Einzahlung abgeschlossen",
+  "NearIntentsDeposit.flow.titleDone": "Einzahlung übermittelt",
   "NearIntentsDeposit.flow.titleFailed": "Einzahlung fehlgeschlagen",
   "NearIntentsDeposit.flow.tradingAccount": "Trading-Konto",
   "NearIntentsDeposit.flow.quoting": "Quote wird angefragt",
@@ -16,5 +16,7 @@
   "NearIntentsDeposit.flow.expected": "Erwartet",
   "NearIntentsDeposit.flow.received": "Erhalten",
   "NearIntentsDeposit.flow.deposited": "Eingezahlt",
-  "NearIntentsDeposit.flow.retry": "Erneut versuchen"
+  "NearIntentsDeposit.flow.retry": "Erneut versuchen",
+  "NearIntentsDeposit.flow.processingNote": "Deine Einzahlung wurde erfolgreich übermittelt. Das Guthaben deines Trading-Kontos wird aktualisiert, sobald die Einzahlung auf der Orderly-Chain verarbeitet wurde — dies dauert in der Regel einige Minuten.",
+  "NearIntentsDeposit.poweredBy": "Chain-übergreifende Einzahlungen werden über NEAR Intents abgewickelt — Gebühren und Slippage fallen an."
 }

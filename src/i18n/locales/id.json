@@ -2,7 +2,7 @@
   "NearIntentsDeposit.refundAddress": "Alamat pengembalian (di chain sumber)",
   "NearIntentsDeposit.viewExplorer": "Lihat di Explorer →",
   "NearIntentsDeposit.flow.title": "Setoran lintas chain sedang berlangsung",
-  "NearIntentsDeposit.flow.titleDone": "Setoran selesai",
+  "NearIntentsDeposit.flow.titleDone": "Setoran dikirim",
   "NearIntentsDeposit.flow.titleFailed": "Setoran gagal",
   "NearIntentsDeposit.flow.tradingAccount": "akun trading",
   "NearIntentsDeposit.flow.quoting": "Meminta kutipan",
@@ -16,5 +16,7 @@
   "NearIntentsDeposit.flow.expected": "Diharapkan",
   "NearIntentsDeposit.flow.received": "Diterima",
   "NearIntentsDeposit.flow.deposited": "Disetorkan",
-  "NearIntentsDeposit.flow.retry": "Coba lagi"
+  "NearIntentsDeposit.flow.retry": "Coba lagi",
+  "NearIntentsDeposit.flow.processingNote": "Setoran Anda berhasil dikirim. Saldo akun trading Anda akan diperbarui setelah setoran diproses di chain Orderly — biasanya memakan waktu beberapa menit.",
+  "NearIntentsDeposit.poweredBy": "Setoran lintas chain diarahkan melalui NEAR Intents — biaya dan slippage berlaku."
 }

@@ -11,6 +11,8 @@ export interface IntegratedDepositWidgetProps {
   jwtToken?: string;
   slippageTolerance?: number;
   className?: string;
+  /** closes the host's deposit sheet (intercepted DepositForm prop) */
+  onCloseSheet?: () => void;
 }
 
 export const IntegratedDepositWidget: FC<IntegratedDepositWidgetProps> = memo(
@@ -23,6 +25,13 @@ export const IntegratedDepositWidget: FC<IntegratedDepositWidgetProps> = memo(
     const { t } = useTranslation();
 
     const flowActive = script.flow.step !== "idle";
+
+    // dismissing the flow modal at its terminal states also closes the
+    // host's deposit sheet — the user is done here
+    const handleFlowDismiss = () => {
+      script.flow.reset();
+      props.onCloseSheet?.();
+    };
 
     return (
       <Box className={cn(props.className)}>
@@ -56,12 +65,23 @@ export const IntegratedDepositWidget: FC<IntegratedDepositWidgetProps> = memo(
           </Box>
         )}
 
+        {script.crossMode && !flowActive && (
+          <Box mt={2}>
+            <Text size="2xs" intensity={54}>
+              {t(
+                "NearIntentsDeposit.poweredBy",
+                "Cross-chain deposits are routed via NEAR Intents — fees and slippage apply.",
+              )}
+            </Text>
+          </Box>
+        )}
+
         {flowActive && (
           <FlowErrorBoundary>
             <FlowModal
               flow={script.flow}
               originSymbol={script.crossToken?.symbol ?? ""}
-              onDismiss={script.flow.reset}
+              onDismiss={handleFlowDismiss}
             />
           </FlowErrorBoundary>
         )}

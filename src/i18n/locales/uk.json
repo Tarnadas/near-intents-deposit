@@ -2,7 +2,7 @@
   "NearIntentsDeposit.refundAddress": "Адреса повернення (у мережі джерела)",
   "NearIntentsDeposit.viewExplorer": "Відкрити в оглядачі →",
   "NearIntentsDeposit.flow.title": "Триває міжланцюгове поповнення",
-  "NearIntentsDeposit.flow.titleDone": "Поповнення завершено",
+  "NearIntentsDeposit.flow.titleDone": "Депозит надіслано",
   "NearIntentsDeposit.flow.titleFailed": "Не вдалося поповнити",
   "NearIntentsDeposit.flow.tradingAccount": "торговий рахунок",
   "NearIntentsDeposit.flow.quoting": "Запит котирування",
@@ -16,5 +16,7 @@
   "NearIntentsDeposit.flow.expected": "Очікується",
   "NearIntentsDeposit.flow.received": "Отримано",
   "NearIntentsDeposit.flow.deposited": "Внесено",
-  "NearIntentsDeposit.flow.retry": "Повторити"
+  "NearIntentsDeposit.flow.retry": "Повторити",
+  "NearIntentsDeposit.flow.processingNote": "Ваш депозит успішно надіслано. Баланс вашого торгового рахунку оновиться після обробки депозиту в мережі Orderly — зазвичай це займає кілька хвилин.",
+  "NearIntentsDeposit.poweredBy": "Кросс-чейн депозити маршрутизуються через NEAR Intents — застосовуються комісії та прослизання."
 }

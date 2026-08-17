@@ -1,6 +1,6 @@
 import { memo } from "react";
 import type { FC, CSSProperties } from "react";
-import { SimpleDialog, Text, Flex, Box } from "@orderly.network/ui";
+import { SimpleDialog, Text, Flex, Box, Button } from "@orderly.network/ui";
 import { useTranslation } from "@orderly.network/i18n";
 import type { CrossDepositFlowState, FlowStep } from "./crossDepositFlow";
 
@@ -79,33 +79,33 @@ export const FlowModal: FC<FlowModalProps> = memo(
               ? t("NearIntentsDeposit.flow.titleFailed", "Deposit failed")
               : t("NearIntentsDeposit.flow.title", "Cross-chain deposit in progress")
         }
-        actions={
-          failed
-            ? {
-                primary: {
-                  label: t("NearIntentsDeposit.flow.retry", "Retry"),
-                  onClick: () => void flow.retryCurrentStep(),
-                },
-                secondary: {
-                  label: t("common.close", "Close"),
-                  onClick: () => onDismiss(),
-                },
-              }
-            : done
-              ? {
-                  primary: {
-                    label: t("common.close", "Close"),
-                    onClick: () => onDismiss(),
-                  },
-                }
-              : undefined
-        }
       >
         <Flex direction="column" gap={1} style={{ width: "100%" }}>
           <Text size="xs" intensity={54}>
             {originSymbol} → USDC →{" "}
             {t("NearIntentsDeposit.flow.tradingAccount", "trading account")}
           </Text>
+
+          {done && (
+            <Flex
+              direction="column"
+              gap={1}
+              mt={3}
+              p={2}
+              style={{
+                width: "100%",
+                borderRadius: "var(--oui-rounded-lg, 8px)",
+                background: "var(--oui-color-base-5, #2a2a35)",
+              }}
+            >
+              <Text size="xs" intensity={80}>
+                {t(
+                  "NearIntentsDeposit.flow.processingNote",
+                  "Your deposit was submitted successfully. The balance of your trading account will update once the deposit has been processed on the Orderly chain — this usually takes a few minutes.",
+                )}
+              </Text>
+            </Flex>
+          )}
 
           <Flex direction="column" gap={2} mt={3} style={{ width: "100%" }}>
             {STEPS.map((s, i) => {
@@ -251,6 +251,31 @@ export const FlowModal: FC<FlowModalProps> = memo(
             <Box mt={2} style={{ color: "var(--oui-color-danger)" }}>
               <Text size="xs">{error}</Text>
             </Box>
+          )}
+
+          {/* Terminal-state buttons render here instead of SimpleDialog's
+              `actions` prop: the SDK's SimpleDialogFooter calls useMemo
+              conditionally after an early return, so toggling actions
+              between undefined and an object changes its hook count
+              mid-life ("change in the order of Hooks" warning). */}
+          {(failed || done) && (
+            <Flex itemAlign="center" gap={2} mt={3} style={{ width: "100%" }}>
+              {failed && (
+                <Button
+                  fullWidth
+                  onClick={() => void flow.retryCurrentStep()}
+                >
+                  {t("NearIntentsDeposit.flow.retry", "Retry")}
+                </Button>
+              )}
+              <Button
+                fullWidth
+                color={failed ? "gray" : "primary"}
+                onClick={() => onDismiss()}
+              >
+                {t("common.close", "Close")}
+              </Button>
+            </Flex>
           )}
         </Flex>
       </SimpleDialog>

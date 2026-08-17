@@ -2,7 +2,7 @@
   "NearIntentsDeposit.refundAddress": "환불 주소 (소스 체인)",
   "NearIntentsDeposit.viewExplorer": "익스플로러에서 보기 →",
   "NearIntentsDeposit.flow.title": "크로스체인 입금 진행 중",
-  "NearIntentsDeposit.flow.titleDone": "입금 완료",
+  "NearIntentsDeposit.flow.titleDone": "입금 제출됨",
   "NearIntentsDeposit.flow.titleFailed": "입금 실패",
   "NearIntentsDeposit.flow.tradingAccount": "트레이딩 계정",
   "NearIntentsDeposit.flow.quoting": "견적 요청 중",
@@ -16,5 +16,7 @@
   "NearIntentsDeposit.flow.expected": "예상",
   "NearIntentsDeposit.flow.received": "수령",
   "NearIntentsDeposit.flow.deposited": "입금됨",
-  "NearIntentsDeposit.flow.retry": "재시도"
+  "NearIntentsDeposit.flow.retry": "재시도",
+  "NearIntentsDeposit.flow.processingNote": "입금이 성공적으로 제출되었습니다. Orderly 체인에서 입금이 처리되면 트레이딩 계정 잔액이 업데이트됩니다. 일반적으로 몇 분 정도 걸립니다.",
+  "NearIntentsDeposit.poweredBy": "크로스체인 입금은 NEAR Intents를 통해 라우팅됩니다 — 수수료와 슬리피지가 적용됩니다."
 }

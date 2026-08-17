@@ -2,7 +2,7 @@
   "NearIntentsDeposit.refundAddress": "返金先アドレス（送信元チェーン上）",
   "NearIntentsDeposit.viewExplorer": "エクスプローラーで確認 →",
   "NearIntentsDeposit.flow.title": "クロスチェーン入金処理中",
-  "NearIntentsDeposit.flow.titleDone": "入金が完了しました",
+  "NearIntentsDeposit.flow.titleDone": "デポジット送信済み",
   "NearIntentsDeposit.flow.titleFailed": "入金に失敗しました",
   "NearIntentsDeposit.flow.tradingAccount": "トレーディングアカウント",
   "NearIntentsDeposit.flow.quoting": "見積もりをリクエスト中",
@@ -16,5 +16,7 @@
   "NearIntentsDeposit.flow.expected": "予想",
   "NearIntentsDeposit.flow.received": "受取額",
   "NearIntentsDeposit.flow.deposited": "入金額",
-  "NearIntentsDeposit.flow.retry": "再試行"
+  "NearIntentsDeposit.flow.retry": "再試行",
+  "NearIntentsDeposit.flow.processingNote": "デポジットは正常に送信されました。Orderlyチェーンでデポジットが処理されると、トレーディングアカウントの残高が更新されます。通常は数分かかります。",
+  "NearIntentsDeposit.poweredBy": "クロスチェーン入金は NEAR Intents 経由でルーティングされます。手数料とスリッページが適用されます。"
 }

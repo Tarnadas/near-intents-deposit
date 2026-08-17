@@ -2,8 +2,10 @@ export const LocaleMessages = {
   "NearIntentsDeposit.refundAddress": "Refund Address (on source chain)",
   "NearIntentsDeposit.viewExplorer": "View on Explorer →",
   "NearIntentsDeposit.flow.title": "Cross-chain deposit in progress",
-  "NearIntentsDeposit.flow.titleDone": "Deposit complete",
+  "NearIntentsDeposit.flow.titleDone": "Deposit submitted",
   "NearIntentsDeposit.flow.titleFailed": "Deposit failed",
+  "NearIntentsDeposit.flow.processingNote":
+    "Your deposit was submitted successfully. The balance of your trading account will update once the deposit has been processed on the Orderly chain — this usually takes a few minutes.",
   "NearIntentsDeposit.flow.tradingAccount": "trading account",
   "NearIntentsDeposit.flow.quoting": "Requesting quote",
   "NearIntentsDeposit.flow.signing": "Confirm transfer in wallet",
@@ -17,6 +19,8 @@ export const LocaleMessages = {
   "NearIntentsDeposit.flow.received": "Received",
   "NearIntentsDeposit.flow.deposited": "Deposited",
   "NearIntentsDeposit.flow.retry": "Retry",
+  "NearIntentsDeposit.poweredBy":
+    "Cross-chain deposits are routed via NEAR Intents — fees and slippage apply.",
 };
 
 export type TLocaleMessages = typeof LocaleMessages;

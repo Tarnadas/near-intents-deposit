@@ -2,7 +2,7 @@
   "NearIntentsDeposit.refundAddress": "Địa chỉ hoàn tiền (trên chuỗi nguồn)",
   "NearIntentsDeposit.viewExplorer": "Xem trên Explorer →",
   "NearIntentsDeposit.flow.title": "Đang nạp tiền liên chuỗi",
-  "NearIntentsDeposit.flow.titleDone": "Nạp tiền hoàn tất",
+  "NearIntentsDeposit.flow.titleDone": "Nạp tiền đã gửi",
   "NearIntentsDeposit.flow.titleFailed": "Nạp tiền thất bại",
   "NearIntentsDeposit.flow.tradingAccount": "tài khoản giao dịch",
   "NearIntentsDeposit.flow.quoting": "Đang yêu cầu báo giá",
@@ -16,5 +16,7 @@
   "NearIntentsDeposit.flow.expected": "Dự kiến",
   "NearIntentsDeposit.flow.received": "Đã nhận",
   "NearIntentsDeposit.flow.deposited": "Đã nạp",
-  "NearIntentsDeposit.flow.retry": "Thử lại"
+  "NearIntentsDeposit.flow.retry": "Thử lại",
+  "NearIntentsDeposit.flow.processingNote": "Khoản nạp tiền của bạn đã được gửi thành công. Số dư tài khoản giao dịch của bạn sẽ được cập nhật sau khi khoản nạp được xử lý trên chuỗi Orderly — thường mất vài phút.",
+  "NearIntentsDeposit.poweredBy": "Nạp tiền cross-chain được định tuyến qua NEAR Intents — áp dụng phí và trượt giá."
 }

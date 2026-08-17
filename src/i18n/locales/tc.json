@@ -2,7 +2,7 @@
   "NearIntentsDeposit.refundAddress": "退款地址（源鏈上）",
   "NearIntentsDeposit.viewExplorer": "在瀏覽器中查看 →",
   "NearIntentsDeposit.flow.title": "跨鏈充值進行中",
-  "NearIntentsDeposit.flow.titleDone": "充值完成",
+  "NearIntentsDeposit.flow.titleDone": "充值已提交",
   "NearIntentsDeposit.flow.titleFailed": "充值失敗",
   "NearIntentsDeposit.flow.tradingAccount": "交易帳戶",
   "NearIntentsDeposit.flow.quoting": "正在取得報價",
@@ -16,5 +16,7 @@
   "NearIntentsDeposit.flow.expected": "預期",
   "NearIntentsDeposit.flow.received": "已收到",
   "NearIntentsDeposit.flow.deposited": "已充值",
-  "NearIntentsDeposit.flow.retry": "重試"
+  "NearIntentsDeposit.flow.retry": "重試",
+  "NearIntentsDeposit.flow.processingNote": "您的充值已成功提交。充值在 Orderly 鏈上處理完成後，您的交易帳戶餘額將會更新，通常需要幾分鐘。",
+  "NearIntentsDeposit.poweredBy": "跨鏈充值通過 NEAR Intents 路由，需支付手續費並存在滑點。"
 }
