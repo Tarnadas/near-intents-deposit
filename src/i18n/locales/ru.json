@@ -1,3 +1,20 @@
 {
-  "common.ok": "OK"
+  "NearIntentsDeposit.refundAddress": "Адрес возврата (в сети источника)",
+  "NearIntentsDeposit.viewExplorer": "Открыть в обозревателе →",
+  "NearIntentsDeposit.flow.title": "Идёт межцепочечное пополнение",
+  "NearIntentsDeposit.flow.titleDone": "Пополнение завершено",
+  "NearIntentsDeposit.flow.titleFailed": "Не удалось пополнить",
+  "NearIntentsDeposit.flow.tradingAccount": "торговый счёт",
+  "NearIntentsDeposit.flow.quoting": "Запрос котировки",
+  "NearIntentsDeposit.flow.signing": "Подтвердите перевод в кошельке",
+  "NearIntentsDeposit.flow.sent": "Обмен выполняется",
+  "NearIntentsDeposit.flow.approving": "Разрешить расход USDC …",
+  "NearIntentsDeposit.flow.confirmDeposit": "Подтвердите пополнение в кошельке …",
+  "NearIntentsDeposit.flow.preparing": "Подготовка пополнения …",
+  "NearIntentsDeposit.flow.depositing": "Пополнение торгового счёта USDC",
+  "NearIntentsDeposit.flow.sending": "Отправка",
+  "NearIntentsDeposit.flow.expected": "Ожидается",
+  "NearIntentsDeposit.flow.received": "Получено",
+  "NearIntentsDeposit.flow.deposited": "Внесено",
+  "NearIntentsDeposit.flow.retry": "Повторить"
 }

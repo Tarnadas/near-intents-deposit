@@ -27,3 +27,6 @@ esm/
 .npmrc
 
 .claude
+
+# DEX host (cloned, not a submodule)
+/dex-host

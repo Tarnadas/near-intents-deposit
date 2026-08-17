@@ -1,3 +1,20 @@
 {
-  "common.ok": "OK"
+  "NearIntentsDeposit.refundAddress": "Dirección de reembolso (en la cadena de origen)",
+  "NearIntentsDeposit.viewExplorer": "Ver en el Explorador →",
+  "NearIntentsDeposit.flow.title": "Depósito entre cadenas en curso",
+  "NearIntentsDeposit.flow.titleDone": "Depósito completado",
+  "NearIntentsDeposit.flow.titleFailed": "Depósito fallido",
+  "NearIntentsDeposit.flow.tradingAccount": "cuenta de trading",
+  "NearIntentsDeposit.flow.quoting": "Solicitando cotización",
+  "NearIntentsDeposit.flow.signing": "Confirmar transferencia en la wallet",
+  "NearIntentsDeposit.flow.sent": "Intercambio en curso",
+  "NearIntentsDeposit.flow.approving": "Aprobar gasto de USDC …",
+  "NearIntentsDeposit.flow.confirmDeposit": "Confirmar depósito en la wallet …",
+  "NearIntentsDeposit.flow.preparing": "Preparando depósito …",
+  "NearIntentsDeposit.flow.depositing": "Depositando USDC en la cuenta de trading",
+  "NearIntentsDeposit.flow.sending": "Enviando",
+  "NearIntentsDeposit.flow.expected": "Esperado",
+  "NearIntentsDeposit.flow.received": "Recibido",
+  "NearIntentsDeposit.flow.deposited": "Depositado",
+  "NearIntentsDeposit.flow.retry": "Reintentar"
 }

@@ -1,3 +1,20 @@
 {
-  "common.ok": "OK"
+  "NearIntentsDeposit.refundAddress": "Rückgabeadresse (auf der Quell-Chain)",
+  "NearIntentsDeposit.viewExplorer": "Im Explorer ansehen →",
+  "NearIntentsDeposit.flow.title": "Chain-übergreifende Einzahlung läuft",
+  "NearIntentsDeposit.flow.titleDone": "Einzahlung abgeschlossen",
+  "NearIntentsDeposit.flow.titleFailed": "Einzahlung fehlgeschlagen",
+  "NearIntentsDeposit.flow.tradingAccount": "Trading-Konto",
+  "NearIntentsDeposit.flow.quoting": "Quote wird angefragt",
+  "NearIntentsDeposit.flow.signing": "Überweisung in der Wallet bestätigen",
+  "NearIntentsDeposit.flow.sent": "Swap läuft",
+  "NearIntentsDeposit.flow.approving": "USDC-Freigabe erteilen …",
+  "NearIntentsDeposit.flow.confirmDeposit": "Einzahlung in der Wallet bestätigen …",
+  "NearIntentsDeposit.flow.preparing": "Einzahlung wird vorbereitet …",
+  "NearIntentsDeposit.flow.depositing": "USDC auf das Trading-Konto einzahlen",
+  "NearIntentsDeposit.flow.sending": "Senden",
+  "NearIntentsDeposit.flow.expected": "Erwartet",
+  "NearIntentsDeposit.flow.received": "Erhalten",
+  "NearIntentsDeposit.flow.deposited": "Eingezahlt",
+  "NearIntentsDeposit.flow.retry": "Erneut versuchen"
 }

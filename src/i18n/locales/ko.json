@@ -1,3 +1,20 @@
 {
-  "common.ok": "확인"
+  "NearIntentsDeposit.refundAddress": "환불 주소 (소스 체인)",
+  "NearIntentsDeposit.viewExplorer": "익스플로러에서 보기 →",
+  "NearIntentsDeposit.flow.title": "크로스체인 입금 진행 중",
+  "NearIntentsDeposit.flow.titleDone": "입금 완료",
+  "NearIntentsDeposit.flow.titleFailed": "입금 실패",
+  "NearIntentsDeposit.flow.tradingAccount": "트레이딩 계정",
+  "NearIntentsDeposit.flow.quoting": "견적 요청 중",
+  "NearIntentsDeposit.flow.signing": "지갑에서 전송 확인",
+  "NearIntentsDeposit.flow.sent": "스왑 진행 중",
+  "NearIntentsDeposit.flow.approving": "USDC 사용 승인 …",
+  "NearIntentsDeposit.flow.confirmDeposit": "지갑에서 입금 확인 …",
+  "NearIntentsDeposit.flow.preparing": "입금 준비 중 …",
+  "NearIntentsDeposit.flow.depositing": "트레이딩 계정에 USDC 입금",
+  "NearIntentsDeposit.flow.sending": "전송",
+  "NearIntentsDeposit.flow.expected": "예상",
+  "NearIntentsDeposit.flow.received": "수령",
+  "NearIntentsDeposit.flow.deposited": "입금됨",
+  "NearIntentsDeposit.flow.retry": "재시도"
 }

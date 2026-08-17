@@ -1,13 +1,16 @@
 {
-  "name": "near-intents-swap",
-  "version": "0.0.1",
-  "description": "Orderly SDK plugin",
+  "name": "@tarnadas/near-intents-deposit",
+  "version": "0.1.0",
+  "description": "Orderly SDK plugin — NEAR Intents cross-chain deposits integrated into the native deposit form",
   "license": "MIT",
+  "author": "Mario Reder",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
+    "LICENSE",
+    "preview.jpg",
     "package.json",
     "README.md"
   ],
@@ -25,12 +28,16 @@
     "@orderly.network/plugin-core": ">=3.0.0-beta.1",
     "@orderly.network/types": ">=3.0.0-beta.1",
     "@orderly.network/ui": ">=3.0.0-beta.1",
+    "@orderly.network/ui-transfer": ">=3.0.0-beta.1",
     "@orderly.network/utils": ">=3.0.0-beta.1",
     "react": ">=18",
     "react-dom": ">=18"
   },
   "devDependencies": {
+    "@orderly.network/react-app": "3.1.7-alpha.3",
     "@orderly.network/ts-config": "^0.0.2",
+    "@orderly.network/ui-transfer": "3.1.7-alpha.3",
+    "@types/node": "^22.7.5",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "react": "^18.2.0",

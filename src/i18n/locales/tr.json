@@ -1,3 +1,20 @@
 {
-  "common.ok": "Tamam"
+  "NearIntentsDeposit.refundAddress": "İade adresi (kaynak zincirde)",
+  "NearIntentsDeposit.viewExplorer": "Gezgin'de Görüntüle →",
+  "NearIntentsDeposit.flow.title": "Zincirler arası yatırma sürüyor",
+  "NearIntentsDeposit.flow.titleDone": "Yatırım tamamlandı",
+  "NearIntentsDeposit.flow.titleFailed": "Yatırım başarısız",
+  "NearIntentsDeposit.flow.tradingAccount": "trading hesabı",
+  "NearIntentsDeposit.flow.quoting": "Teklif isteniyor",
+  "NearIntentsDeposit.flow.signing": "Transferi cüzdanda onayla",
+  "NearIntentsDeposit.flow.sent": "Takas sürüyor",
+  "NearIntentsDeposit.flow.approving": "USDC harcamasını onayla …",
+  "NearIntentsDeposit.flow.confirmDeposit": "Yatırımı cüzdanda onayla …",
+  "NearIntentsDeposit.flow.preparing": "Yatırım hazırlanıyor …",
+  "NearIntentsDeposit.flow.depositing": "USDC'yi trading hesabına yatır",
+  "NearIntentsDeposit.flow.sending": "Gönderiliyor",
+  "NearIntentsDeposit.flow.expected": "Beklenen",
+  "NearIntentsDeposit.flow.received": "Alındı",
+  "NearIntentsDeposit.flow.deposited": "Yatırıldı",
+  "NearIntentsDeposit.flow.retry": "Yeniden dene"
 }

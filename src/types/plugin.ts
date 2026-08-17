@@ -1,4 +1,4 @@
-export interface NearIntentsSwapOptions {
+export interface NearIntentsDepositOptions {
   /** Optional CSS class for the swap widget wrapper */
   className?: string;
   /** JWT token for fee-free swaps (get from NEAR Intents Partner Dashboard) */

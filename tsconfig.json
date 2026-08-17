@@ -22,6 +22,7 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
+    "skipLibCheck": true,
     "lib": ["es2020", "dom", "dom.iterable"]
   }
 }

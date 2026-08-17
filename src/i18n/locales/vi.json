@@ -1,3 +1,20 @@
 {
-  "common.ok": "OK"
+  "NearIntentsDeposit.refundAddress": "Địa chỉ hoàn tiền (trên chuỗi nguồn)",
+  "NearIntentsDeposit.viewExplorer": "Xem trên Explorer →",
+  "NearIntentsDeposit.flow.title": "Đang nạp tiền liên chuỗi",
+  "NearIntentsDeposit.flow.titleDone": "Nạp tiền hoàn tất",
+  "NearIntentsDeposit.flow.titleFailed": "Nạp tiền thất bại",
+  "NearIntentsDeposit.flow.tradingAccount": "tài khoản giao dịch",
+  "NearIntentsDeposit.flow.quoting": "Đang yêu cầu báo giá",
+  "NearIntentsDeposit.flow.signing": "Xác nhận chuyển khoản trong ví",
+  "NearIntentsDeposit.flow.sent": "Đang trao đổi",
+  "NearIntentsDeposit.flow.approving": "Phê duyệt chi tiêu USDC …",
+  "NearIntentsDeposit.flow.confirmDeposit": "Xác nhận nạp tiền trong ví …",
+  "NearIntentsDeposit.flow.preparing": "Đang chuẩn bị nạp tiền …",
+  "NearIntentsDeposit.flow.depositing": "Nạp USDC vào tài khoản giao dịch",
+  "NearIntentsDeposit.flow.sending": "Đang gửi",
+  "NearIntentsDeposit.flow.expected": "Dự kiến",
+  "NearIntentsDeposit.flow.received": "Đã nhận",
+  "NearIntentsDeposit.flow.deposited": "Đã nạp",
+  "NearIntentsDeposit.flow.retry": "Thử lại"
 }

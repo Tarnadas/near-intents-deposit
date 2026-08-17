@@ -1,3 +1,20 @@
 {
-  "common.ok": "OK"
+  "NearIntentsDeposit.refundAddress": "Alamat pengembalian (di chain sumber)",
+  "NearIntentsDeposit.viewExplorer": "Lihat di Explorer →",
+  "NearIntentsDeposit.flow.title": "Setoran lintas chain sedang berlangsung",
+  "NearIntentsDeposit.flow.titleDone": "Setoran selesai",
+  "NearIntentsDeposit.flow.titleFailed": "Setoran gagal",
+  "NearIntentsDeposit.flow.tradingAccount": "akun trading",
+  "NearIntentsDeposit.flow.quoting": "Meminta kutipan",
+  "NearIntentsDeposit.flow.signing": "Konfirmasi transfer di dompet",
+  "NearIntentsDeposit.flow.sent": "Pertukaran berlangsung",
+  "NearIntentsDeposit.flow.approving": "Setujui pengeluaran USDC …",
+  "NearIntentsDeposit.flow.confirmDeposit": "Konfirmasi setoran di dompet …",
+  "NearIntentsDeposit.flow.preparing": "Menyiapkan setoran …",
+  "NearIntentsDeposit.flow.depositing": "Menyetorkan USDC ke akun trading",
+  "NearIntentsDeposit.flow.sending": "Mengirim",
+  "NearIntentsDeposit.flow.expected": "Diharapkan",
+  "NearIntentsDeposit.flow.received": "Diterima",
+  "NearIntentsDeposit.flow.deposited": "Disetorkan",
+  "NearIntentsDeposit.flow.retry": "Coba lagi"
 }

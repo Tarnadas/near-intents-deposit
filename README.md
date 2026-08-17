@@ -1,103 +1,114 @@
-# @orderly.network/plugin-template
+# @tarnadas/near-intents-deposit
 
-Template project for creating a new Orderly SDK plugin. It comes with:
+![Deposit progress modal](preview.jpg)
 
-- **Plugin registration**: exports a `registerPlugin()` factory using `createInterceptor` from `@orderly.network/plugin-core`
-- **3-layer widget architecture**: widget wrapper → business logic hook → pure UI component
-- **i18n integration**: external locale loading powered by `@orderly.network/i18n`
-- **Style build pipeline**: uses `tailwindcss` to build `dist/styles.css`
+Orderly SDK plugin that adds **automated cross-chain deposits** to the native Deposit form, powered by [NEAR Intents](https://docs.near-intents.org) 1-Click API.
 
-## Installation
+## What it does
+
+The plugin enhances — not replaces — the deposit experience. Users see the same Orderly deposit form they always did:
+
+1. The source token dropdown is extended with cross-chain tokens the user **actually holds** on their connected chain (on-chain balances are read via public RPC; tokens already supported as native collateral are deduped by symbol)
+2. Selecting a native token → the normal deposit path runs unchanged
+3. Selecting a cross-chain token (e.g. ARB, SOL, BTC) → a fully automated multi-step flow:
+   - Live quote preview while typing ("You'll receive ~X USDC")
+   - **Step 1** — quote accepted, wallet asks to transfer the tokens to a 1-Click deposit address (one signature)
+   - **Step 2** — NEAR Intents solvers execute the swap (live status in the progress modal)
+   - **Step 3** — received USDC is automatically deposited into the user's Orderly trading account (approval + vault deposit, one to two signatures)
+   - A themed progress modal walks through every step with amounts, live solver status, explorer links, retry on failure, and refund-safety (funds return to the user's address if the swap fails)
+
+No new tabs, no visible mode switch — the cross-chain rail is plumbing, not UI.
+
+## Install
 
 ```bash
-pnpm add @orderly.network/your-plugin-name
+npm install @tarnadas/near-intents-deposit
 ```
 
-This template declares the following peerDependencies (must be provided by the host app):
+### Peer dependencies
 
-- `@orderly.network/hooks >= 2.10.1`
-- `@orderly.network/i18n >= 2.10.1`
-- `@orderly.network/plugin-core >= 2.10.1`
-- `@orderly.network/ui >= 2.10.1`
-- `react >= 18`
-- `react-dom >= 18`
+Provided by any Orderly SDK v3 host app:
 
-## Exports
+- `@orderly.network/ui-transfer`, `@orderly.network/ui`, `@orderly.network/hooks`, `@orderly.network/i18n`, `@orderly.network/types`, `@orderly.network/plugin-core` `>= 3.0.0`
+- `react`, `react-dom` `>= 18`
 
-- **`registerOrderlyPlugin(options)`**: Plugin registration function, pass to `OrderlyPluginProvider.plugins`
-- **`LocaleProvider`**: i18n provider component
-- **`OrderlyPluginTemplateOptions`**: TypeScript interface for plugin options
-
-### Using the plugin
+## Integrate
 
 ```tsx
-import { registerOrderlyPlugin } from "@orderly.network/your-plugin-name";
-import { OrderlyPluginProvider } from "@orderly.network/ui";
+import { OrderlyAppProvider } from "@orderly.network/react-app";
+import { registerNearIntentsDepositPlugin } from "@tarnadas/near-intents-deposit";
+import "@tarnadas/near-intents-deposit/dist/styles.css";
 
-function App() {
-  return (
-    <OrderlyPluginProvider plugins={[registerOrderlyPlugin({ className: "..." })]}>
-      <TradingPage />
-    </OrderlyPluginProvider>
-  );
+<OrderlyAppProvider
+  brokerId="your-broker-id"
+  brokerName="your-broker-name"
+  plugins={[
+    registerNearIntentsDepositPlugin({
+      // Optional — waives the 0.2% 1-Click platform fee.
+      // Get a token at https://partners.near-intents.org
+      jwtToken: import.meta.env.VITE_1CLICK_JWT,
+    }),
+  ]}
+>
+```
+
+Environment fallback: `options.jwtToken` → `VITE_1CLICK_JWT` / `NEXT_PUBLIC_1CLICK_JWT` → unauthenticated (0.2% fee).
+
+### Plugin options
+
+```ts
+interface NearIntentsSwapOptions {
+  /** CSS class for the widget wrapper */
+  className?: string;
+  /** 1-Click JWT for fee-free swaps */
+  jwtToken?: string;
+  /** Slippage tolerance in basis points (default: 100 = 1%) */
+  slippageTolerance?: number;
 }
 ```
 
-### Using the i18n provider
+## Architecture
 
-`LocaleProvider` is implemented on top of `ExternalLocaleProvider` from `@orderly.network/i18n`:
+| Layer | File | Role |
+|-------|------|------|
+| Interceptor | `plugin.tsx` | Replaces the `Deposit.DepositForm` render with the integrated widget |
+| Script | `integratedDeposit.script.tsx` | Calls the SDK's own `useDepositFormScript`; merges balance-gated 1-Click tokens into the source list; overrides form state in cross-chain mode |
+| Flow | `crossDepositFlow.ts` | The deposit state machine: quote → wallet transfer → solve polling → (approval) → vault deposit, with fire-once ref latches and error extraction |
+| Modal | `flowModal.tsx` | Themed progress dialog built on `SimpleDialog` + `--oui-*` CSS variables |
+| Balances | `hooks/useOnchainBalances.ts` | Native + ERC20 balance reads via JSON-RPC (public endpoints, chunked) |
+| 1-Click | `hooks/useTokens.ts`, `useQuote.ts`, `useSwapStatus.ts` | 1-Click API: tokens, dry/real quotes, status polling |
 
-```tsx
-import { LocaleProvider } from "@orderly.network/your-plugin-name";
+### Interceptor target
 
-export function Root() {
-  return <LocaleProvider>{/* your widget here */}</LocaleProvider>;
-}
-```
+`Deposit.DepositForm` — the stock Orderly deposit form renders with an extended token list; only the source dropdown reveals anything changed.
 
-## Styles & build
+## Important notes
+
+- **No testnet**: NEAR Intents runs on mainnet only. Test with small amounts.
+- **Vite dev hosts**: when consuming the plugin via `file:` / symlink, ensure `@orderly.network/*` resolves to the host's copies — add `resolve.alias` / `dedupe` entries pointing at the host's `node_modules/@orderly.network/*`. Otherwise duplicate React contexts cause `configStore is not defined` errors.
+- **Fee policy**: without a JWT, 1-Click applies a 0.2% platform fee; solver execution itself takes 1–5 min cross-chain.
+- **Security**: never hardcode JWTs in client code for production.
+
+## Publish / submit to the Builders Marketplace
 
 ```bash
-pnpm build
+pnpm build          # tsup (cjs+esm+dts) + tailwind css
+npm publish         # public package
+orderly-devkit login
+orderly-devkit submit --dry-run
+orderly-devkit submit
 ```
 
-This runs `tsup` to build the TypeScript and `tailwindcss` to build `dist/styles.css`.
-
-## Using with the Orderly CLI
-
-Generate a new plugin from this template:
-
-```bash
-npx @orderly.network/cli create plugin --pluginId myplugin-a1b2c3 --template default
-```
-
-The CLI will replace handlebars placeholders (`near-intents-swap`, `NearIntentsSwap`, etc.) with your provided values.
-
-## Template structure
-
-```
-src/
-  index.tsx                  ← Plugin entry, registerPlugin factory
-  types/
-    plugin.ts               ← Plugin options interface
-  components/
-    pluginWidget/
-      index.ts              ← Widget barrel export
-      pluginWidget.widget.tsx   ← Layer 1: Widget wrapper
-      pluginWidget.script.tsx   ← Layer 2: Business logic hook
-      pluginWidget.ui.tsx       ← Layer 3: Pure UI component
-  i18n/
-    index.ts                ← Re-export LocaleProvider
-    provider.tsx            ← Wraps ExternalLocaleProvider
-    module.ts               ← LocaleMessages + type
-    locales/
-      en.json               ← Default locale
-  tailwind.css
-```
+The manifest (`.orderly-manifest.json`) carries `npmName`, `pluginId`, `repoUrl`, `tags`, and `usagePrompt` (agent-facing integration steps). Submission triggers an Orderly security review before the listing goes live.
 
 ## Development
 
 ```bash
-pnpm dev    # Watch mode
-pnpm build  # Production build
+pnpm install
+pnpm dev      # watch build
+pnpm build    # production build → dist/
 ```
+
+## License
+
+MIT

@@ -1,3 +1,20 @@
 {
-  "common.ok": "OK"
+  "NearIntentsDeposit.refundAddress": "Terugbetalingsadres (op de bronchain)",
+  "NearIntentsDeposit.viewExplorer": "Bekijk in Explorer →",
+  "NearIntentsDeposit.flow.title": "Cross-chain storting bezig",
+  "NearIntentsDeposit.flow.titleDone": "Storting voltooid",
+  "NearIntentsDeposit.flow.titleFailed": "Storting mislukt",
+  "NearIntentsDeposit.flow.tradingAccount": "tradingrekening",
+  "NearIntentsDeposit.flow.quoting": "Offerte opvragen",
+  "NearIntentsDeposit.flow.signing": "Bevestig overschrijving in wallet",
+  "NearIntentsDeposit.flow.sent": "Swap bezig",
+  "NearIntentsDeposit.flow.approving": "USDC-besteding goedkeuren …",
+  "NearIntentsDeposit.flow.confirmDeposit": "Bevestig storting in wallet …",
+  "NearIntentsDeposit.flow.preparing": "Storting voorbereiden …",
+  "NearIntentsDeposit.flow.depositing": "USDC storten op tradingrekening",
+  "NearIntentsDeposit.flow.sending": "Verzenden",
+  "NearIntentsDeposit.flow.expected": "Verwacht",
+  "NearIntentsDeposit.flow.received": "Ontvangen",
+  "NearIntentsDeposit.flow.deposited": "Gestort",
+  "NearIntentsDeposit.flow.retry": "Opnieuw proberen"
 }

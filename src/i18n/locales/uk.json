@@ -1,3 +1,20 @@
 {
-  "common.ok": "OK"
+  "NearIntentsDeposit.refundAddress": "Адреса повернення (у мережі джерела)",
+  "NearIntentsDeposit.viewExplorer": "Відкрити в оглядачі →",
+  "NearIntentsDeposit.flow.title": "Триває міжланцюгове поповнення",
+  "NearIntentsDeposit.flow.titleDone": "Поповнення завершено",
+  "NearIntentsDeposit.flow.titleFailed": "Не вдалося поповнити",
+  "NearIntentsDeposit.flow.tradingAccount": "торговий рахунок",
+  "NearIntentsDeposit.flow.quoting": "Запит котирування",
+  "NearIntentsDeposit.flow.signing": "Підтвердіть переказ у гаманці",
+  "NearIntentsDeposit.flow.sent": "Обмін виконується",
+  "NearIntentsDeposit.flow.approving": "Дозволити витрату USDC …",
+  "NearIntentsDeposit.flow.confirmDeposit": "Підтвердіть поповнення у гаманці …",
+  "NearIntentsDeposit.flow.preparing": "Підготовка поповнення …",
+  "NearIntentsDeposit.flow.depositing": "Поповнення торгового рахунку USDC",
+  "NearIntentsDeposit.flow.sending": "Надсилання",
+  "NearIntentsDeposit.flow.expected": "Очікується",
+  "NearIntentsDeposit.flow.received": "Отримано",
+  "NearIntentsDeposit.flow.deposited": "Внесено",
+  "NearIntentsDeposit.flow.retry": "Повторити"
 }

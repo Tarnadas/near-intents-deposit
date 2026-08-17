@@ -1,5 +1,4 @@
 export { LocaleProvider } from "./i18n";
-export type { NearIntentsSwapOptions } from "./types/plugin";
-export type { NearIntentsSwapWidgetProps } from "./components/nearIntentsSwap";
+export type { NearIntentsDepositOptions } from "./types/plugin";
 
-export { registerNearIntentsSwapPlugin } from "./plugin";
+export { registerNearIntentsDepositPlugin } from "./plugin";

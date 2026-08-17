@@ -1,3 +1,20 @@
 {
-  "common.ok": "OK"
+  "NearIntentsDeposit.refundAddress": "返金先アドレス（送信元チェーン上）",
+  "NearIntentsDeposit.viewExplorer": "エクスプローラーで確認 →",
+  "NearIntentsDeposit.flow.title": "クロスチェーン入金処理中",
+  "NearIntentsDeposit.flow.titleDone": "入金が完了しました",
+  "NearIntentsDeposit.flow.titleFailed": "入金に失敗しました",
+  "NearIntentsDeposit.flow.tradingAccount": "トレーディングアカウント",
+  "NearIntentsDeposit.flow.quoting": "見積もりをリクエスト中",
+  "NearIntentsDeposit.flow.signing": "ウォレットで送金を承認",
+  "NearIntentsDeposit.flow.sent": "スワップ処理中",
+  "NearIntentsDeposit.flow.approving": "USDCの使用を承認 …",
+  "NearIntentsDeposit.flow.confirmDeposit": "ウォレットで入金を承認 …",
+  "NearIntentsDeposit.flow.preparing": "入金を準備中 …",
+  "NearIntentsDeposit.flow.depositing": "USDCをトレーディングアカウントへ入金",
+  "NearIntentsDeposit.flow.sending": "送信",
+  "NearIntentsDeposit.flow.expected": "予想",
+  "NearIntentsDeposit.flow.received": "受取額",
+  "NearIntentsDeposit.flow.deposited": "入金額",
+  "NearIntentsDeposit.flow.retry": "再試行"
 }

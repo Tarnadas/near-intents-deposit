@@ -1,3 +1,20 @@
 {
-  "common.ok": "好的"
+  "NearIntentsDeposit.refundAddress": "退款地址（源链上）",
+  "NearIntentsDeposit.viewExplorer": "在浏览器中查看 →",
+  "NearIntentsDeposit.flow.title": "跨链充值进行中",
+  "NearIntentsDeposit.flow.titleDone": "充值完成",
+  "NearIntentsDeposit.flow.titleFailed": "充值失败",
+  "NearIntentsDeposit.flow.tradingAccount": "交易账户",
+  "NearIntentsDeposit.flow.quoting": "正在获取报价",
+  "NearIntentsDeposit.flow.signing": "在钱包中确认转账",
+  "NearIntentsDeposit.flow.sent": "兑换进行中",
+  "NearIntentsDeposit.flow.approving": "授权 USDC 支出 …",
+  "NearIntentsDeposit.flow.confirmDeposit": "在钱包中确认充值 …",
+  "NearIntentsDeposit.flow.preparing": "正在准备充值 …",
+  "NearIntentsDeposit.flow.depositing": "将 USDC 充值到交易账户",
+  "NearIntentsDeposit.flow.sending": "发送",
+  "NearIntentsDeposit.flow.expected": "预期",
+  "NearIntentsDeposit.flow.received": "已收到",
+  "NearIntentsDeposit.flow.deposited": "已充值",
+  "NearIntentsDeposit.flow.retry": "重试"
 }

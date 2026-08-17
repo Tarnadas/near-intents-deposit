@@ -1,11 +1,12 @@
 {
-  "npmName": "near-intents-swap",
-  "pluginId": "near-intents-swap",
-  "repoUrl": "github.com/OrderlyNetwork/near-intents-plugin",
-  "tags": [],
+  "npmName": "@tarnadas/near-intents-deposit",
+  "pluginId": "near-intents-deposit",
+  "repoUrl": "github.com/Tarnadas/near-intents-deposit",
+  "tags": ["deposit", "cross-chain", "near-intents", "swap"],
+  "previewImage": "preview.jpg",
   "storybookUrl": null,
   "storybookTooltip": null,
-  "usagePrompt": null,
+  "usagePrompt": "Install @tarnadas/near-intents-deposit to add NEAR Intents cross-chain deposits to the native Orderly deposit form. Setup: (1) `npm install @tarnadas/near-intents-deposit`; (2) import `registerNearIntentsDepositPlugin` from \"@tarnadas/near-intents-deposit\" and add `import \"@tarnadas/near-intents-deposit/dist/styles.css\"`; (3) register it on `OrderlyAppProvider` via `plugins={[registerNearIntentsDepositPlugin({ jwtToken: import.meta.env.VITE_1CLICK_JWT })]}`. Optional: set `VITE_1CLICK_JWT` (from https://partners.near-intents.org) to waive the 0.2% 1-Click platform fee. The plugin replaces the Deposit form's script layer: users' connected-chain tokens with an on-chain balance are merged into the source token list; picking a cross-chain token triggers an automated quote -> wallet transfer -> NEAR Intents solve -> USDC vault deposit flow with a progress modal. Ensure the host resolves `@orderly.network/*` packages to a single copy (dedupe) to avoid duplicate React contexts.",
   "createdAt": "2026-08-13T12:26:55.828Z",
-  "updatedAt": "2026-08-13T12:26:55.828Z"
+  "updatedAt": "2026-08-17T00:00:00.000Z"
 }
