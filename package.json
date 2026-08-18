@@ -1,7 +1,7 @@
 {
   "name": "@tarnadas/near-intents-deposit",
-  "version": "1.0.0",
-  "description": "Orderly SDK plugin — NEAR Intents cross-chain deposits integrated into the native deposit form",
+  "version": "1.0.1",
+  "description": "Orderly SDK plugin \u2014 NEAR Intents cross-chain deposits integrated into the native deposit form",
   "license": "MIT",
   "author": "Mario Reder",
   "main": "dist/index.js",
@@ -53,5 +53,13 @@
   },
   "dependencies": {
     "@defuse-protocol/one-click-sdk-typescript": "^0.1.25"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tarnadas/near-intents-deposit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Tarnadas/near-intents-deposit/issues"
+  },
+  "homepage": "https://github.com/Tarnadas/near-intents-deposit#readme"
 }

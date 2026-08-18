@@ -1,6 +1,7 @@
 import React from "react";
 import { createInterceptor } from "@orderly.network/plugin-core";
 import type { OrderlySDK } from "@orderly.network/plugin-core";
+import pkg from "../package.json";
 import { LocaleProvider } from "./i18n";
 import { IntegratedDepositWidget } from "./components/integratedDeposit";
 import type { NearIntentsDepositOptions } from "./types/plugin";
@@ -13,7 +14,7 @@ export function registerNearIntentsDepositPlugin(options: NearIntentsDepositOpti
     SDK.registerPlugin({
       id: "near-intents-deposit",
       name: "NearIntentsDeposit",
-      version: "0.2.0",
+      version: pkg.version,
       orderlyVersion: ">=3.0.0",
 
       interceptors: [

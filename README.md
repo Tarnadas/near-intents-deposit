@@ -1,7 +1,5 @@
 # @tarnadas/near-intents-deposit
 
-![Deposit progress modal](preview.jpg)
-
 Orderly SDK plugin that adds **automated cross-chain deposits** to the native Deposit form, powered by [NEAR Intents](https://docs.near-intents.org) 1-Click API.
 
 ## What it does
