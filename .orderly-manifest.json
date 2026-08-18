@@ -1,8 +1,8 @@
 {
   "npmName": "@tarnadas/near-intents-deposit",
   "pluginId": "near-intents-deposit",
-  "repoUrl": "github.com/Tarnadas/near-intents-deposit",
-  "tags": ["deposit", "cross-chain", "near-intents", "swap"],
+  "repoUrl": "https://github.com/Tarnadas/near-intents-deposit",
+  "tags": ["Widget", "Portfolio"],
   "previewImage": "preview.jpg",
   "storybookUrl": null,
   "storybookTooltip": null,

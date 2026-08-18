@@ -1,6 +1,6 @@
 {
   "name": "@tarnadas/near-intents-deposit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Orderly SDK plugin \u2014 NEAR Intents cross-chain deposits integrated into the native deposit form",
   "license": "MIT",
   "author": "Mario Reder",
