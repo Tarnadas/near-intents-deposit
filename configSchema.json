@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "className": {
+      "type": "string",
+      "description": "Optional CSS class for the swap widget wrapper"
+    },
+    "jwtToken": {
+      "type": "string",
+      "description": "JWT token for fee-free swaps (get from NEAR Intents Partner Dashboard)"
+    },
+    "slippageTolerance": {
+      "type": "number",
+      "description": "Default slippage tolerance in basis points (100 = 1%).",
+      "minimum": 1,
+      "maximum": 5000,
+      "default": 100
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}
